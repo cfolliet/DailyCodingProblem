@@ -11,3 +11,22 @@ node = Node('root', Node('left', Node('left.left')), Node('right'))
 assert deserialize(serialize(node)).left.left.val == 'left.left'
 
 */
+
+function Node(val, left, right) {
+    return {
+        val: val,
+        left: left,
+        right: right
+    }
+}
+function serialize(root) {
+    return JSON.stringify(root);
+}
+
+function deserialize(string) {
+    return JSON.parse(string);
+}
+
+const node = Node('root', Node('left', Node('left.left')), Node('right'))
+console.log(serialize(node))
+console.log(deserialize(serialize(node)).left.left.val == 'left.left')
